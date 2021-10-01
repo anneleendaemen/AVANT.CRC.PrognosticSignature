@@ -4,9 +4,7 @@ source("Load_Libraries.R")
 ### CODE FOR SUPPLEMENTARY FIGURE S14A, S14B, S14C
 
 
-df <- read.csv("../data/tsneRun_CD45_immune_allcells_excludedmarkers_noPBMC_dataset.csv", check.names=FALSE)
-df <- df[,-c(1)]
-names(df) <- gsub("\\d+.._","", names(df)) %>% gsub("CDalphaE", "CD103_alphaE",.) # Removing metal conjugate numbers from column names
+load("../data/tsneRun_CD45_immune_allcells_excludedmarkers_noPBMC_dataset.RData")
 
 clusters <- data.frame("Cluster"=c(0:25),"celltype"=rep(NA,26))
 clusters$celltype[clusters$Cluster==0] <- "Outliers"
